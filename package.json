@@ -1,0 +1,16 @@
+{
+  "name": "vue-test",
+  "version": "1.0.0",
+  "description": "This is a vue test project",
+  "main": "index.js",
+  "author": "Mather",
+  "license": "MIT",
+  "dependencies": {
+    "vue-cli": "^2.8.1",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p"
+  }
+}
