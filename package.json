@@ -15,10 +15,11 @@
     "node-less": "^1.0.0",
     "style-loader": "^0.13.2",
     "vue-cli": "^2.8.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "dev": "webpack -d",
+    "dev": "webpack-dev-server",
     "prod": "webpack -p"
   }
 }
