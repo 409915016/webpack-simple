@@ -8,7 +8,7 @@ var path = require("path");
 module.exports = {
     entry: {
         app: './src/app.js',
-        contact : './src/contact.js',
+        contact: './src/contact.js',
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -28,7 +28,11 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader"
+                use: "babel-loader"
+            },
+            {
+                test: /\.pug$/,
+                use: ["pug-loader", "pug-html-loader"]
             }
 
         ]
@@ -49,13 +53,13 @@ module.exports = {
             hash: true,
             excludeChunks: ['contact'],
             // filename: './../index.html',
-            template: './src/index.html', // Load a custom template (ejs by default see the FAQ for details)
+            template: './src/index.pug', // Load a custom template (ejs by default see the FAQ for details)
 
         }),
         new HtmlWebpackPlugin({
             title: 'Contact Page',
             hash: true,
-            chunks:['contact'],
+            chunks: ['contact'],
             filename: 'contact.html',
             template: './src/contact.html',
         }),
