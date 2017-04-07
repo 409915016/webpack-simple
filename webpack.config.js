@@ -6,10 +6,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require("path");
 module.exports = {
-    entry: './src/app.js',
+    entry: {
+        app: './src/app.js',
+        contact : './src/contact.js',
+    },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
@@ -40,12 +43,21 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Project Demo',
-            minify: {
-                collapseWhitespace: true
-            },
+            // minify: {
+            //     collapseWhitespace: true
+            // },
             hash: true,
+            excludeChunks: ['contact'],
+            // filename: './../index.html',
             template: './src/index.html', // Load a custom template (ejs by default see the FAQ for details)
 
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Contact Page',
+            hash: true,
+            chunks:['contact'],
+            filename: 'contact.html',
+            template: './src/contact.html',
         }),
         new ExtractTextPlugin('app.css')
     ]

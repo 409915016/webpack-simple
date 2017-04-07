@@ -19,6 +19,7 @@
     "node-less": "^1.0.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "rimraf": "^2.6.1",
     "style-loader": "^0.13.2",
     "vue-cli": "^2.8.1",
     "webpack": "^2.2.1",
@@ -26,6 +27,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "webpack -p"
+    "prod": "yarn run clean && webpack -p",
+    "clean": "rimraf ./dist/*"
   }
 }
