@@ -21,7 +21,13 @@ module.exports = {
                     publicPath: "/dist"
                 })
                 //use: ExtractTextPlugin.extract(['style-loader', 'css-loader', 'less-loader'])
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
             }
+
         ]
     },
     devServer: {
