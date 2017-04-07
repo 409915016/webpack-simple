@@ -6,6 +6,16 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var path = require("path");
+
+var isProd = process.env.NODE_ENV === 'production';
+var cssDev = ['style-loader', 'css-loader', 'less-loader'];
+var cssProd = ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: ["css-loader", "less-loader"],
+    publicPath: "/dist"
+});
+var cssConfig = isProd ? cssProd : cssDev;
+
 module.exports = {
     entry: {
         app: './src/app.js',
@@ -19,13 +29,7 @@ module.exports = {
         rules: [
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
-                // use: ExtractTextPlugin.extract({
-                //     fallback: "style-loader",
-                //     use: ["css-loader", "less-loader"],
-                //     publicPath: "/dist"
-                // })
-                //use: ExtractTextPlugin.extract(['style-loader', 'css-loader', 'less-loader'])
+                use: cssConfig
             },
             {
                 test: /\.js$/,
@@ -68,7 +72,7 @@ module.exports = {
         }),
         new ExtractTextPlugin({
             filename: 'app.css',
-            disable: true,
+            disable: !isProd,
             allChunks: true
         }),
         new webpack.HotModuleReplacementPlugin(),

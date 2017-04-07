@@ -1,13 +1,13 @@
 {
-  "name": "vue-test",
+  "name": "webpack-simple",
   "version": "1.0.0",
-  "description": "This is a vue test project",
+  "description": "This is a webpack simple project",
   "main": "index.js",
   "author": "Mather",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "yarn run clean && webpack -p",
+    "prod": "yarn run clean && SET NODE_ENV=production && webpack -p",
     "clean": "rimraf ./dist/*"
   },
   "dependencies": {
