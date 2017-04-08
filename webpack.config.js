@@ -39,6 +39,16 @@ module.exports = {
             {
                 test: /\.pug$/,
                 use: ["pug-loader", "pug-html-loader"]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    "file-loader?name=images/[name].[ext]",
+                    //"file-loader?name=[name].[ext]&outputPath=images/&publicPath=images/",
+                    {
+                        loader: "image-webpack-loader",
+                        options: {}
+                    }]
             }
 
         ]
@@ -60,8 +70,7 @@ module.exports = {
             hash: true,
             excludeChunks: ['contact'],
             // filename: './../index.html',
-            template: './src/index.pug', // Load a custom template (ejs by default see the FAQ for details)
-
+            template: './src/index.html',
         }),
         new HtmlWebpackPlugin({
             title: 'Contact Page',
