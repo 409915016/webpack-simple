@@ -6,20 +6,24 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack');
 var path = require("path");
+var bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
 var isProd = process.env.NODE_ENV === 'production';
-var cssDev = ['style-loader', 'css-loader', 'less-loader'];
+var cssDev = ['style-loader', 'css-loader?sourceMap', 'sass-loader'];
 var cssProd = ExtractTextPlugin.extract({
     fallback: "style-loader",
-    use: ["css-loader", "less-loader"],
+    use: ["css-loader", "sass-loader"],
     publicPath: "/dist"
 });
 var cssConfig = isProd ? cssProd : cssDev;
+
+var bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 module.exports = {
     entry: {
         app: './src/app.js',
         contact: './src/contact.js',
+        bootstrap: bootstrapConfig
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -27,8 +31,12 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /\.less$/,
+            //     use: cssConfig
+            // },
             {
-                test: /\.less$/,
+                test: /\.scss$/,
                 use: cssConfig
             },
             {
