@@ -57,7 +57,11 @@ module.exports = {
                         loader: "image-webpack-loader",
                         options: {}
                     }]
-            }
+            },
+            {test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'},
+            {test: /\.(ttf|eot)$/, loader: 'file-loader?name=fonts/[name].[ext]'},
+            // Bootstrap 3
+            {test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports-loader?jQuery=jquery'},
 
         ]
     },
@@ -88,7 +92,7 @@ module.exports = {
             template: './src/contact.html',
         }),
         new ExtractTextPlugin({
-            filename: 'app.css',
+            filename: '/css/[name].css',
             disable: !isProd,
             allChunks: true
         }),
