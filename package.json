@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server",
-    "prod": "yarn run clean && SET NODE_ENV=production && webpack -p",
+    "prod": "yarn run clean && SET NODE_ENV=production&& webpack -p",
     "clean": "rimraf ./dist/*"
   },
   "dependencies": {

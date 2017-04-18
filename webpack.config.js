@@ -6,15 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
 const path = require("path");
-const glob = require('glob');
-const PurifyCSSPlugin = require('purifycss-webpack');
 const bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
-const isProd = process.env.NODE_ENV == 'production';
+const isProd = process.env.NODE_ENV === 'production';
 const cssDev = ['style-loader', 'css-loader?sourceMap', 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
     fallback: "style-loader",
-    use: ["css-loader?sourceMap", "sass-loader"],
+    use: ["css-loader", "sass-loader"],
     publicPath: "/dist"
 });
 const cssConfig = isProd ? cssProd : cssDev;
@@ -39,11 +37,7 @@ module.exports = {
             // },
             {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    //resolve-url-loader may be chained before sass-loader if necessary
-                    use: ['css-loader', 'sass-loader']
-                })
+                use: cssConfig
             },
             {
                 test: /\.js$/,
@@ -90,9 +84,16 @@ module.exports = {
             // filename: './../index.html',
             template: './src/index.html',
         }),
+        new HtmlWebpackPlugin({
+            title: 'Contact Page',
+            hash: true,
+            chunks: ['contact'],
+            filename: 'contact.html',
+            template: './src/contact.html',
+        }),
         new ExtractTextPlugin({
             filename:  (getPath) => {
-                return getPath('css/[name].css').replace('css/js', 'css');
+                return getPath('css/[name].css');
             },
             disable: !isProd,
             allChunks: true
@@ -101,10 +102,6 @@ module.exports = {
         // enable HMR globally
         new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
-        new PurifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
-            paths: glob.sync(path.join(__dirname, 'src/*.html')),
-        })
     ]
 
 };
