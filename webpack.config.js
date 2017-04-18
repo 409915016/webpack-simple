@@ -2,24 +2,30 @@
  * Created by Administrator on 2017-03-11.
  */
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var webpack = require('webpack');
-var path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+const path = require("path");
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
-var isProd = process.env.NODE_ENV === 'production';
-var cssDev = ['style-loader', 'css-loader', 'less-loader'];
-var cssProd = ExtractTextPlugin.extract({
+const isProd = process.env.NODE_ENV == 'production';
+const cssDev = ['style-loader', 'css-loader?sourceMap', 'sass-loader'];
+const cssProd = ExtractTextPlugin.extract({
     fallback: "style-loader",
-    use: ["css-loader", "less-loader"],
+    use: ["css-loader?sourceMap", "sass-loader"],
     publicPath: "/dist"
 });
-var cssConfig = isProd ? cssProd : cssDev;
+const cssConfig = isProd ? cssProd : cssDev;
+
+const bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 module.exports = {
     entry: {
         app: './src/app.js',
         contact: './src/contact.js',
+        bootstrap: bootstrapConfig
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -27,9 +33,17 @@ module.exports = {
     },
     module: {
         rules: [
+            // {
+            //     test: /\.less$/,
+            //     use: cssConfig
+            // },
             {
-                test: /\.less$/,
-                use: cssConfig
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    //resolve-url-loader may be chained before sass-loader if necessary
+                    use: ['css-loader', 'sass-loader']
+                })
             },
             {
                 test: /\.js$/,
@@ -49,7 +63,11 @@ module.exports = {
                         loader: "image-webpack-loader",
                         options: {}
                     }]
-            }
+            },
+            {test: /\.(woff2?|svg)$/, loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'},
+            {test: /\.(ttf|eot)$/, loader: 'file-loader?name=fonts/[name].[ext]'},
+            // Bootstrap 3
+            {test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports-loader?jQuery=jquery'},
 
         ]
     },
@@ -72,15 +90,10 @@ module.exports = {
             // filename: './../index.html',
             template: './src/index.html',
         }),
-        new HtmlWebpackPlugin({
-            title: 'Contact Page',
-            hash: true,
-            chunks: ['contact'],
-            filename: 'contact.html',
-            template: './src/contact.html',
-        }),
         new ExtractTextPlugin({
-            filename: 'app.css',
+            filename:  (getPath) => {
+                return getPath('css/[name].css').replace('css/js', 'css');
+            },
             disable: !isProd,
             allChunks: true
         }),
@@ -88,6 +101,10 @@ module.exports = {
         // enable HMR globally
         new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
+        new PurifyCSSPlugin({
+            // Give paths to parse for rules. These should be absolute!
+            paths: glob.sync(path.join(__dirname, 'src/*.html')),
+        })
     ]
 
 };
