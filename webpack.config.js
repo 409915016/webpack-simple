@@ -2,22 +2,22 @@
  * Created by Administrator on 2017-03-11.
  */
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var webpack = require('webpack');
-var path = require("path");
-var bootstrapEntryPoints = require('./webpack.bootstrap.config');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+const path = require("path");
+const bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
-var isProd = process.env.NODE_ENV === 'production';
-var cssDev = ['style-loader', 'css-loader?sourceMap', 'sass-loader'];
-var cssProd = ExtractTextPlugin.extract({
+const isProd = process.env.NODE_ENV === 'production';
+const cssDev = ['style-loader', 'css-loader?sourceMap', 'sass-loader'];
+const cssProd = ExtractTextPlugin.extract({
     fallback: "style-loader",
     use: ["css-loader", "sass-loader"],
     publicPath: "/dist"
 });
-var cssConfig = isProd ? cssProd : cssDev;
+const cssConfig = isProd ? cssProd : cssDev;
 
-var bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
+const bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 module.exports = {
     entry: {
@@ -92,7 +92,9 @@ module.exports = {
             template: './src/contact.html',
         }),
         new ExtractTextPlugin({
-            filename: '/css/[name].css',
+            filename:  (getPath) => {
+                return getPath('css/[name].css');
+            },
             disable: !isProd,
             allChunks: true
         }),
