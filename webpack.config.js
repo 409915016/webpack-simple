@@ -39,7 +39,11 @@ module.exports = {
             // },
             {
                 test: /\.scss$/,
-                use: cssConfig
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    //resolve-url-loader may be chained before sass-loader if necessary
+                    use: ['css-loader', 'sass-loader']
+                })
             },
             {
                 test: /\.js$/,
@@ -87,7 +91,9 @@ module.exports = {
             template: './src/index.html',
         }),
         new ExtractTextPlugin({
-            filename: '/css/[name].css',
+            filename:  (getPath) => {
+                return getPath('css/[name].css').replace('css/js', 'css');
+            },
             disable: !isProd,
             allChunks: true
         }),
