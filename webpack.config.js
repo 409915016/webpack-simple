@@ -92,9 +92,7 @@ module.exports = {
             template: './src/contact.html',
         }),
         new ExtractTextPlugin({
-            filename:  (getPath) => {
-                return getPath('css/[name].css');
-            },
+            filename: 'css/[name].css',
             disable: !isProd,
             allChunks: true
         }),
