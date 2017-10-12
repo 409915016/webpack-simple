@@ -1,60 +1,57 @@
 /**
  * Created by Administrator on 2017-03-11.
  */
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
-const path = require("path");
-const bootstrapEntryPoints = require('./webpack.bootstrap.config');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
+
 
 const isProd = process.env.NODE_ENV === 'production';
-const cssDev = ['style-loader', 'css-loader?sourceMap', 'sass-loader'];
+const cssDev = ['style-loader', 'css-loader?sourceMap', 'less-loader', 'postcss-loader'];
 const cssProd = ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: ["css-loader", "sass-loader"],
-    publicPath: "/dist"
+    fallback: 'style-loader',
+    use: ['css-loader', 'less-loader', 'postcss-loader'],
+    publicPath: '/dist'
 });
 const cssConfig = isProd ? cssProd : cssDev;
 
-const bootstrapConfig = isProd ? bootstrapEntryPoints.prod : bootstrapEntryPoints.dev;
 
 module.exports = {
     entry: {
-        app: './src/app.js',
-        contact: './src/contact.js',
-        bootstrap: bootstrapConfig
+        main: './src/main.js'
     },
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
     },
     module: {
         rules: [
+            {
+                test: /\.less$/,
+                use: cssConfig
+            },
             // {
-            //     test: /\.less$/,
+            //     test: /\.scss$/,
             //     use: cssConfig
             // },
             {
-                test: /\.scss$/,
-                use: cssConfig
-            },
-            {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: "babel-loader"
+                use: 'babel-loader'
             },
             {
                 test: /\.pug$/,
-                use: ["pug-loader", "pug-html-loader"]
+                use: ['pug-loader', 'pug-html-loader']
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [
-                    "file-loader?name=images/[name].[ext]",
+                    'file-loader?name=images/[name].[ext]',
                     //"file-loader?name=[name].[ext]&outputPath=images/&publicPath=images/",
                     {
-                        loader: "image-webpack-loader",
+                        loader: 'image-webpack-loader',
                         options: {}
                     }]
             },
@@ -66,11 +63,11 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, "dist"),
+        contentBase: path.join(__dirname, 'dist'),
         compress: true,
         hot: true,
         port: 9000,
-        stats: "errors-only",
+        stats: 'errors-only',
         open: true
     },
     plugins: [
@@ -82,14 +79,7 @@ module.exports = {
             hash: true,
             excludeChunks: ['contact'],
             // filename: './../index.html',
-            template: './src/index.html',
-        }),
-        new HtmlWebpackPlugin({
-            title: 'Contact Page',
-            hash: true,
-            chunks: ['contact'],
-            filename: 'contact.html',
-            template: './src/contact.html',
+            template: './src/index.html'
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].css',
