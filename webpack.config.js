@@ -24,7 +24,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].bundle.js'
+        filename: 'resource/[name].bundle.js'
     },
     module: {
         rules: [
@@ -67,7 +67,7 @@ module.exports = {
         contentBase: './src',
         compress: true,
         hot: true,
-        port: 9000,
+        port: 9001,
         stats: 'errors-only',
         open: true
     },
@@ -83,7 +83,7 @@ module.exports = {
             template: './src/infzm.html'
         }),
         new ExtractTextPlugin({
-            filename: 'css/[name].css',
+            filename: 'resource/[name].css',
             disable: !isProd,
             allChunks: true
         }),

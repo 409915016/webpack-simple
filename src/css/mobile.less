@@ -1,0 +1,1050 @@
+/* reset */
+  html{font-size: 62.5%}
+  body {
+    color: #171717;
+    font-family:"HelveticaNeueLTPro-Md", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4,h5,h6 , nav li a{font-weight:500;font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
+  * {
+    margin: 0;
+    padding: 0;
+    background: no-repeat;
+    list-style: none;
+  }
+  img { max-width: 100%; height: auto;}
+
+  h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.3em;
+  }
+  h2 {
+    font-size: 2em;
+    text-align: left;
+    font-weight: bold;
+  }
+  h3 {
+    margin-top: 0.8em;
+    font-size: 1.8em;
+    text-align: left;
+    line-height: 1.3em;
+    font-weight: bold;
+  }
+  h4{
+    font-size: 1.5em;
+  }
+  h5{
+    font-size: 1.4em;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  a { color: #000;}
+  li { list-style-type:none;}
+  textarea { box-shadow: none; border: none; border-radius: none;}
+  input { box-shadow: none; border: none; border-radius: none;}
+  ol li, ul li {
+      text-indent: 35px;
+      font-size: 1.6em;
+      margin: 2px 0;
+  }
+.clear { overflow: auto;}
+.lef { float: left;}
+.rig { float: right;}
+.none { margin: 0; padding: 0;}
+.inblock { display: inline-block;}
+.line_bot { border-bottom: 1px solid #dcdcdc;}
+.line_rig { border-right: 1px solid #343434;}
+.content{ padding: 1.5em 0em;
+// transform: scaleX(0.97);
+// -webkit-transform: scaleX(0.97);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.loading {
+  display: none;
+  margin: auto;
+  width: 2em;
+  height: 2em;
+  margin-bottom: 16px;
+  background: url(http://images.infzm.com/images/2.0/mobile/details/loader.gif) no-repeat;
+  background-size: 100% auto;
+}
+.article_sfont  , .picCaption {
+  font-size: 1.2em !important;
+  color: #626262;
+  padding: 0 !important;
+  /* text-align: center !important;*/
+}
+.article_fo {
+  margin-top: 14px;
+}
+.article_p {
+  margin-top: 4px;
+}
+.article_p p{
+  //text-indent: 35px;
+  line-height: 1.6em !important;
+  margin-top: 0.8em;
+  font-size: 1.6em;
+  text-align: justify;
+  // padding: 0 1em;
+}
+.iframeVideo p { text-indent: 0px !important}
+.contentImg p { text-indent: 0px !important}
+.content_media p { text-indent: 0px !important}
+
+.article_p p.iframeVideo  { text-indent: 0px !important;text-align: center !important;padding: 0 !important;}
+.article_p p.contentImg  { text-indent: 0px !important;text-align: center !important;padding: 0 !important;}
+.article_p p.cm_pic_outer{text-indent: 0px !important;text-align: center !important;padding: 0 !important;}
+.article_p p.cm_pic_caption{text-indent: 0px !important;text-align: center !important;padding: 0 !important;}
+
+.shade {
+  display: none;
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.wx_share {
+  width: 19.2em;
+  height: 10.2em;
+  background: url(http://images.infzm.com/images/2.0/mobile/details/wx-share.png) no-repeat;
+  background-size: 100% auto;
+}
+
+/* nav */
+  .navbar {
+    height: 50px;
+    padding: 0em 7px;
+  }
+
+  .navlogo {
+    width: 140px;
+    height: 42px;
+    margin: 7px 1em 3px 0em;
+    display: block;
+  }
+
+  .navshape {
+    width: 7px;
+    height: 50px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/header-shape.png) no-repeat;
+    background-size: 7px 51px;
+  }
+
+  .navbar_header {
+    font-size: 2em;
+    font-family: "微软雅黑";
+    color: #000;
+    position: relative;
+    top: -14px;
+  }
+
+  .navbar_user{
+    width: 22px;
+    height: 21px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/icon--user.png) no-repeat;
+    background-size: 22px auto;
+    background-origin: content-box;
+    -webkit-background-origin: content-box;
+    margin: 5px 8px 5px 0px;
+    padding:10px 10px;
+  }
+
+  .navbar_btn{
+    width: 22px;
+    height: 21px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/nav.png) no-repeat;
+    background-size: 22px auto;
+    background-repeat: no-repeat;
+    padding: 15px 0px 15px 0;
+    background-origin: content-box;
+    -webkit-background-origin: content-box;
+  }
+
+/* details content */
+  .article_head { 
+    padding: 7px 0px 15px 0px;
+    line-height: 1.5em;
+  }
+  .article_from {
+    margin-left: 10px;
+  }
+  .article_source {
+    margin-left: 10px;
+  }
+  .pic_food {
+    width: 14em;
+    padding: 8px 0px 0px 0px;
+    margin: auto;
+  }
+  .pic_head {
+    margin:0.4em 0;
+    overflow: hidden;
+  }
+
+  .comment_block{
+    margin: 15px 0px 10px 0px;
+  }
+
+  .agree {
+    width: 49px;
+    height: 20px;
+    border: 1px solid #d3d3d3;
+    padding: 7px 9px;
+    background-color: #fff;
+  }
+  .agree_num {
+    font-size: 17px;
+  }
+  .agreebtn {
+    width: 17px;
+    height: 16px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/like.png) no-repeat;
+    background-size: 17px auto;
+  }
+  .agreebtn_click {
+    width: 17px;
+    height: 16px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/like-onclick.png) no-repeat;
+    background-size: 17px auto;
+  }
+  .agreenum{
+    color: #565656;
+    font-size: 1.3em;
+  }
+  .sharebtn {
+    width: 111px;
+    height: 36px;
+    background-color: #fff;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/share.png) no-repeat;
+    background-size: 100% 36px;
+  }
+  .sharebtn_click {
+    width: 111px;
+    height: 36px;
+    background-color: #fff;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/share-click.png) no-repeat;
+    background-size: 100% 36px;
+  }
+
+  .interac { padding: 0px 0px 15px 0px;}
+
+  .share_content {
+    display: none;
+    border: 1px solid #dcdcdc;
+    margin-top: 50px;
+    padding: 11px 8px;
+    background: #fff;
+  }
+
+  .share_show {
+    display: block;
+    animation:down_slid 0.5s;
+    animation-fill-mode : forwards;
+    -moz-animation:down_slid 0.5s; /* Firefox */
+    -moz-animation-fill-mode : forwards;
+    -webkit-animation:down_slid 0.5s; /* Safari and Chrome */
+    -webkit-animation-fill-mode : forwards;
+    -o-animation:down_slid 0.5s; /* Opera */
+    -o-animation-fill-mode : forwards;
+  }  /* share button action */
+
+    @keyframes down_slid {
+      from  {transform:translate3d( 0,0,0);}
+      to  {transform:translate3d( 0,3,0);}
+    }
+    @-moz-keyframes down_slid { /* Firefox */
+      from  {transform:translate3d( 0,0,0);}
+      to  {transform:translate3d( 0,3,0);}
+    }
+    @-webkit-keyframes down_slid { /* Safari and Chrome */
+      from  {transform:translate3d( 0,0,0);}
+      to  {transform:translate3d( 0,3,0);}
+    }
+    @-o-keyframes down_slid { /* Opera */
+      from  {transform:translate3d( 0,0,0);}
+      to  {transform:translate3d( 0,3,0);}
+    }
+  .share_hide {
+    display: none;
+    animation:bar_slid 0.5s;
+    animation-fill-mode : forwards;
+    -moz-animation:bar_slid 0.5s; /* Firefox */
+    -moz-animation-fill-mode : forwards;
+    -webkit-animation:bar_slid 0.5s; /* Safari and Chrome */
+    -webkit-animation-fill-mode : forwards;
+    -o-animation:bar_slid 0.5s; /* Opera */
+    -o-animation-fill-mode : forwards;
+  }
+
+    @keyframes up_slid {
+      from  {transform:translate3d( 0,3,0);}
+      to  {transform:translate3d( 0,0,0);}
+    }
+
+    @-moz-keyframes up_slid { /* Firefox */
+      from  {transform:translate3d( 0,3,0);}
+      to  {transform:translate3d( 0,0,0);}
+    }
+
+    @-webkit-keyframes up_slid { /* Safari and Chrome */
+      from  {transform:translate3d( 0,3,0);}
+      to  {transform:translate3d( 0,0,0);}
+    }
+
+    @-o-keyframes up_slid { /* Opera */
+      from  {transform:translate3d( 0,3,0);}
+      to  {transform:translate3d( 0,0,0);}
+    }
+
+  .share_li { padding: 8px 0px; font-size: 1.6em;}
+
+  .ico_rig {
+    width: 8px;
+    height: 11px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/arrow.png) no-repeat;
+    background-size: 8px auto;
+    margin-top: 5px;
+  }
+
+  .ico_size {
+    width: 16px;
+    height: 13px;
+    margin-right: 5px;
+  }
+
+  .share_wechat {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/wechat.png) no-repeat;
+    background-size: 16px auto;
+  }
+  .share_moments {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/moments.png) no-repeat;
+    background-size: 16px auto;
+  }
+  .share_tencent {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/tencen.png) no-repeat;
+    background-size: 16px auto;
+  }
+  .share_qzone {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/qzone.png) no-repeat;
+    background-size: 16px auto;
+  }
+  .share_sina {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/sina.png) no-repeat;
+    background-size: 16px auto;
+  }
+  
+
+  .sameto_txt {
+    margin: 0px 23px 0px 0px;
+    font-size: 1.6em;
+  }
+
+  .sameto_li {
+    width: 20px;
+    height: 18px;
+    margin-right: 15px;
+  }
+  .sameto_place { position: relative; bottom: -3px;}
+
+  .sameto_sina {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/comment-sina.png) no-repeat;
+    background-size: 100% auto;
+  }
+  .sameto_tencent {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/comment-tencent.png) no-repeat;
+    background-size: 100% auto;
+  }
+  .sameto_qzone {
+    background: url(http://images.infzm.com/images/2.0/mobile/details/comment-qzone.png) no-repeat;
+    background-size: 100% auto;
+  }
+  
+  .showmore {
+    height: 25px;
+    border: 1px solid #dcdcdc;
+    margin: 4px 0px 16px 0px;
+    padding: 5px;
+    background: #fff;
+  }
+  .morelink {
+    display:block;
+    width:100%;
+    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .allcom {
+    margin: auto;
+    line-height: 25px;
+    font-size: 1.5em;
+    color: #212423;
+    text-align: center;
+  }
+  .more_article { margin: 14px 0px;}
+
+/* footer */
+  .footer {
+    margin-top: 22px;
+    padding: 30px 0px;
+    background: #dadad7;
+  }
+
+  .footnav {
+    width: 23%;
+    color: #626262;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  .footright {
+    width: 6em;
+    margin: auto;
+    /*padding-top: 35px;*/
+    color: #9f9f9f;
+    font-size: 1.2em;
+  }
+
+  .topictop {
+      background: #fff;
+      position: relative;
+      border: solid 1px #d3d3d3;
+  }
+  .topictop:after, .topictop:before {
+      bottom: 100%;
+      border: 1px solid transparent;
+      content: " ";
+      position: absolute;
+      pointer-events: none;
+  }
+  .topictop:after {
+      border-bottom-color: #fff;
+      border-width: 8px;
+      left: 80%;
+      margin-left: -8px;
+  }
+  .topictop:before {
+      border-bottom-color: #d3d3d3;
+      border-width: 10px;
+      left: 80%;
+      margin-left: -10px;
+  }
+
+/* side up and down */
+  .go {
+    display: none;
+    width:30px;
+    height:85px;
+    position:fixed;
+    right:1em;
+    bottom:1%;
+  }
+  .go a {
+      float:left;
+      margin-bottom: 12px;
+    }
+    .go .top {
+          width: 30px;
+          height: 32px;
+          background: url(http://images.infzm.com/images/2.0/mobile/details/top.png) no-repeat;
+          background-size: 30px auto;
+        }
+    .go .bottom {
+          width: 30px;
+          height: 32px;
+          background: url(http://images.infzm.com/images/2.0/mobile/details/bottom.png) no-repeat;
+          background-size: 30px auto;
+        }
+
+/* sidebar menus */
+  .slid_block {
+    margin: 50px 0px 0px 0px;
+  }
+  .slid_block a {
+    padding: 13px 0px 13px 25px;
+    display: block;
+  }
+  .slid_block a div {
+      width: 17px;
+      height: 14px;
+      margin-right: 12px;
+  }
+  .slid_active {
+    background: rgba(219,39,52,0.5);
+  }
+  .slid_txt {
+    color: #fff;
+    font-size: 1.5em;
+  }
+  /*.slid_block .news{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu1.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .economy{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu2.png) no-repeat;
+      background-size: 100% auto;
+      background-repeat:no-repeat;
+    }
+  .slid_block .culture{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu3.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .life{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu4.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .movie{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu5.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .comment{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu6.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .green{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu7.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .voice{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu8.png) no-repeat;
+      background-size: 100% auto;
+    }
+  .slid_block .people{
+      background: url(http://images.infzm.com/images/2.0/mobile/details/menu9.png) no-repeat;
+      background-size: 100% auto;
+    }*/
+  .download-tips {
+    position: fixed;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    opacity: 0.95;
+  }
+  .download-tips .share-banner {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .download-tips .download-btn, .download-tips .close-btn {
+    display: block;
+    position: absolute;
+  }
+  .download-tips .close-btn {
+    background-image: url(http://images.infzm.com/images/2.0/mobile/close_btn.png);
+    background-size: auto 60%;
+    background-position: left center;
+    z-index: 999;
+    top: 30.0462%;
+    right: 0%;
+    width: 5.93333%;
+    height: 39.4846%;
+  }
+  .h_w1 img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+  .qr-mask-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.7;
+  }
+  .qr-mask-container .close {
+    position: absolute;
+    top: 10%;
+    right: 20px;
+    color: #fff;
+    font-size: 5em;
+    padding: 10px;
+  }
+  .qrcode-container {
+    display: none;
+    position: absolute;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+  }
+  .qrcode-container .qrcode {
+    display: block;
+    width: 100%;
+  }
+  .qrcode-container .qrcode-text {
+    color: #fff;
+    text-align: center;
+    font-size: 1.6em;
+    padding: 10px 0;
+  }
+  
+  .mainbody {
+    width: 100%;
+    overflow: hidden;
+  }
+  .wapper {
+    position: relative;
+    width: 100%
+  }
+  .ad-img {
+    width: 100%;
+  }
+    .sidebar_show {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width:150px;
+      bottom: 0;
+      background: #21211f;
+      animation:bar_slid 0.5s;
+      -moz-animation:bar_slid 0.5s; /* Firefox */
+      -moz-animation-fill-mode : forwards;
+      -webkit-animation:bar_slid 0.5s; /* Safari and Chrome */
+      -webkit-animation-fill-mode : forwards;
+      -o-animation:bar_slid 0.5s; /* Opera */
+      -o-animation-fill-mode : forwards;
+    }
+    @keyframes bar_slid
+    {
+      from  {right: -150px;}
+      to  {right: 0;}
+    }
+    @-moz-keyframes bar_slid /* Firefox */
+    {
+      from  {right: -150px;}
+      to  {right: 0;}
+    }
+    @-webkit-keyframes bar_slid /* Safari and Chrome */
+    {
+      from  {right: -150px;}
+      to  {right: 0;}
+    }
+    @-o-keyframes bar_slid /* Opera */
+    {
+      from  {right: -150px;}
+      to  {right: 0;}
+    }
+
+    .sidebar_hide {
+      display: none;
+      position: absolute;
+      right: -150px;
+      top: 0;
+      width:150px;
+      bottom: 0;
+      background:red;
+      animation:bar_hide 0.5s;
+      animation-fill-mode : forwards;
+      -moz-animation:bar_hide 0.5s; /* Firefox */
+      -moz-animation-fill-mode : forwards;
+      -webkit-animation:bar_hide 0.5s; /* Safari and Chrome */
+      -webkit-animation-fill-mode : forwards;
+      -o-animation:bar_hide 0.5s; /* Opera */
+      -o-animation-fill-mode : forwards;
+    }
+    @keyframes bar_hide
+    {
+      from  {right: 0;}
+      to  {right: -150px;}
+    }
+    @-moz-keyframes bar_hide /* Firefox */
+    {
+      from  {right: 0;}
+      to  {right: -150px;}
+    }
+    @-webkit-keyframes bar_hide /* Safari and Chrome */
+    {
+      from  {right: 0;}
+      to  {right: -150px;}
+    }
+    @-o-keyframes bar_hide /* Opera */
+    {
+      from  {right: 0;}
+      to  {right: -150px;}
+    }
+
+    .mainbody_hide {
+      position: relative;
+      left: -150px;
+      animation:body_hide 0.5s;
+      animation-fill-mode : forwards;
+      -moz-animation:body_hide 0.5s; /* Firefox */
+      -moz-animation-fill-mode : forwards;
+      -webkit-animation:body_hide 0.5s; /* Safari and Chrome */
+      -webkit-animation-fill-mode : forwards;
+      -o-animation:body_hide 0.5s; /* Opera */
+      -o-animation-fill-mode : forwards;
+    }
+    @keyframes body_hide
+    {
+      from  {left: 0;}
+      to  {left: -150px;}
+    }
+    @-moz-keyframes body_hide /* Firefox */
+    {
+      from  {left: 0;}
+      to  {left: -150px;}
+    }
+    @-webkit-keyframes body_hide /* Safari and Chrome */
+    {
+      from  {left: 0;}
+      to  {left: -150px;}
+    }
+    @-o-keyframes body_hide /* Opera */
+    {
+      from  {left: 0;}
+      to  {left: -150px;}
+    }
+
+/* sign up and sign in*/
+  .signcontent {
+    margin: 10px 1em 0px;
+  }
+  .memberlogo_place {
+    position: absolute;
+    left: 50%;
+    width: 18.3em;
+    display: inline-block;
+    margin: 0 0 0 -9.6em;
+    padding-top: 0.6em;
+  }
+  .memberlogo {
+    height: 4em;
+    background: url(http://images.infzm.com/images/2.0/mobile/top-logo.png) no-repeat;
+    background-size: 100% auto;
+  }
+  .memberlink {
+    height: 40px;
+    width: 18.3em;
+    display: block;
+  }
+  .navbar_signin {
+    width: 45px;
+    height: 28px;
+    padding: 11px 12px 10px 0px;
+    background: url(http://images.infzm.com/images/2.0/mobile/login-icon.png) no-repeat;
+    background-size: 100% 28px;
+    background-origin: content-box;
+    -webkit-background-origin: content-box;
+  }
+  .navbar_signup {
+    width: 45px;
+    height: 28px;
+    padding: 11px 12px 11px 0px;
+    background: url(http://images.infzm.com/images/2.0/mobile/register-icon.png) no-repeat;
+    background-size: 100% 28px;
+    background-origin: content-box;
+    -webkit-background-origin: content-box;
+  }
+  .navbar_sign {
+    height: 50px;
+  }
+  .backto {
+    width: 15px;
+    height: 15px;
+    background: url(http://images.infzm.com/images/2.0/mobile/back.png) no-repeat;
+    background-size: 100% auto;
+    padding: 18px 12px;
+    background-origin: content-box;
+    -webkit-background-origin: content-box;
+  }
+  .signup_head {
+    font-family: "微软雅黑";
+    font-size: 1.6em;
+    margin-bottom: 8px;
+  }
+  .warnhide {
+    display: none;
+    color: #b12029;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  .notice_icon {
+    width: 12px;
+    height: 12px;
+    background: url(http://images.infzm.com/images/2.0/mobile/notice.png) no-repeat;
+    background-size: 100% auto;
+    margin-right: 5px;
+  }
+  .user_ {
+    width: 100%;
+    height: 38px;
+    background: url(http://images.infzm.com/images/2.0/mobile/text-box.png) no-repeat;
+    background-size: 100% 38px;
+  }
+  .user_place {
+    width: 100px;
+    height: 24px;
+    padding: 8px;
+  }
+  .user_icon {
+    width: 19px;
+    height: 20px;
+    background: url(http://images.infzm.com/images/2.0/mobile/user-icon.png) no-repeat;
+    background-size: 19px auto;
+    position: relative;
+    top: -40px;
+  }
+  .user_email {
+    width: 88%;
+    padding-left: 12%;
+    height: 37px;
+    color: #000;
+    font-size: 1.4em;
+    background: url(http://images.infzm.com/images/2.0/mobile/user-icon.png) no-repeat;
+    background-size: 19px auto;
+    background-position: 10px 9px;
+  }
+  .user_pw {
+    width: 88%;
+    padding-left: 12%;
+    height: 37px;
+    color: #000;
+    font-size: 1.4em;
+    background: url(http://images.infzm.com/images/2.0/mobile/lock-icon.png) no-repeat;
+    background-size: 19px auto;
+    background-position: 10px 9px;
+  }
+  .pw_place {
+    margin-top: 9px;
+  }
+  .haveread_place {
+    margin-top: 5px;
+  }
+  .havecheck {
+    color: #9d1210;
+    width: 1.2em;
+    height: 1.2em;
+    background: url(http://images.infzm.com/images/2.0/mobile/shape.png);
+    background-size: 100% auto;
+  }
+  .haveread {
+    font-size: 1.4em;
+    line-height: 20px;
+  }
+  .agreement {
+    color: #9d1210;
+  }
+  .signbtn{
+    width: 100%;
+    height: 2em;
+    background: url(http://images.infzm.com/images/2.0/mobile/button.png) no-repeat;
+    background-size: 100% 2em;
+    margin-top: 20px;
+    color: #fff;
+    font-size: 2em;
+  }
+  .sign_social {
+    margin-top: 14px;
+  }
+  .social_txt {
+    font-size: 2em;
+    color: #54565b;
+    height: 23px;
+    margin-top: -10px;
+  }
+  .social_li {
+    margin-left: 10px;
+  }
+  .social_li li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .social_qq {
+    display: block;
+    width: 15px;
+    height: 16px;
+    background: url(http://images.infzm.com/images/2.0/mobile/qq.png) no-repeat;
+    background-size: 100% auto;
+  }
+  .social_sina {
+    display: block;
+    width: 20px;
+    height: 16px;
+    background: url(http://images.infzm.com/images/2.0/mobile/sina.png) no-repeat;
+    background-size: 100% auto;
+  }
+
+
+/* give grade */
+.giveGrade {
+  overflow: auto;
+  margin-top: 15px;
+}
+.giveGrade .bstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  background-size: 100% auto;
+  background-position: 0 -22px;
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+.giveGrade .sbstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  background-position: -8px -87px;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+.giveGrade .mstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  background-position: -10px -148px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+.giveGrade .rstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  background-position: -10px -131px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+.giveGrade .gstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  background-position: -10px -131px;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+.movieGrade {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+.giveGrade .avgGradeNum {
+  color: #f04f53;
+  font-size: 1.9em;  
+  margin: 0px 15px 0px 15px;
+}
+.giveGrade .allUserNum {
+  color: rgb(0, 85, 153);
+  display: inline-block;
+}
+.giveGrade .percent {
+  width: 80px;
+  height: 10px;
+  overflow: hidden;
+  margin-left: 8px;
+}
+.giveGrade .takePercent {
+  height: 100%;
+  background: #f7c5c5;
+  margin-top: 1px;
+}
+.giveGrade .percentNum {
+  font-size: 1.2em;
+  font-family: Arial;
+  color: #666;
+}
+.giveGrade .usersGrade {
+  font-family: "宋体";
+  font-size: 1.2em;
+}
+.giveGrade ul li {
+  height: 12px;
+  margin-top: 4px;
+}
+.giveGrade ul li div {
+  display: inline-block;
+}
+.giveGrade .userGrade {
+  margin-top: 15px;
+  font-size: 1.2em;
+}
+.gradeLayout .resetColor {
+  color: rgb(0, 85, 153);
+  display: none;
+  margin-left: 8px;
+}
+/* reset user grade */
+.resetLayout {
+  display: none;
+  width: 300px;
+  height: 180px;
+  border: 1px solid #ccc;
+  background: #fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -15.1em;
+  margin-top: -7.9em;
+}
+.rcover {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+.resetLayout .resetContent {
+  margin: 20px;
+}
+.resetLayout .resetContent .resetGrade {
+  width: 180px;
+  margin: auto;
+  padding: 30px 0px
+}
+.resetLayout .resetContent .restBtn {
+  width: 60px;
+  height: 33px;
+  border: 1px solid #ccc;
+  background: #f3f3f3;
+  float: right;
+}
+.resetLayout .resetContent .bbstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.resetLayout .resetContent .resetstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  background-position: 0 -44px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.resetLayout .resetContent .rgstar {
+  background: url("/images/2.0/icons/star.png") no-repeat;
+  /*background-size: 100% auto;*/
+  background-position: 0 -44px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.gradeWarn {
+  width: 70px;
+  height: 18px;
+  background: #fff1bb;
+  border: 1px solid #ffe26c;
+  color: #666;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 10px;
+  display: none;
+  margin-right: 10px;
+}
+.editorNote , .direction , .quote , .question , .foreword {
+  font-family:"楷体","楷体_GB2312","STKaiti"
+}
