@@ -1,0 +1,70 @@
+.com_head {
+    height: 28px;
+    font-size: 1.4em;
+    color: #2b2b2b;
+    margin: 14px 0px 8px 0px;
+    line-height: 28px;
+  }
+  .com_num {
+    color: #b12129;
+    font-size: 0.9em;
+  }
+  .com_sign {
+    width: 43px;
+    height: 25px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/comment-logon.png) no-repeat;
+    background-size: 43px 25px;
+  }
+  .com_txt {
+    font-size: 1.7em;
+    line-height: 1.2;
+    margin-right: 2em;
+    width: 96%;
+    height: 55px;
+    background: #ededed;
+    border: 0px solid #d7d7d7;
+    border-radius: none;
+    padding: 6px 2%;
+  }
+.com_send {
+    width: 54px;
+    height: 30px;
+    background: url(http://images.infzm.com/images/2.0/mobile/details/send.png) no-repeat;
+    background-size: 100% auto;
+    display: block;
+    margin-top: 5px;
+  }
+  .com_li {margin-top: 11px;}
+
+  .user_name {
+    color: #4281e1;
+    font-size: 1.6em;
+  }
+
+  .com_litxt {
+    font-size: 1.5em;
+    margin: 13px 0px;
+    line-height: 1.3em;
+  }
+  .com_time {
+    color: #a9a9a9;
+    font-size: 1.2em;
+    margin-bottom: 11px;
+  }
+  .com_reply{
+    color: #6096e8;
+    font-size: 1.2em;
+    margin-left: 5px;
+    margin-bottom: 11px;
+  }
+input::-webkit-input-placeholder{color:#d6d6d6}
+textarea::-webkit-input-placeholder{color:#d6d6d6}
+.input-modal{display:none;position:fixed;bottom:0;left:0;right:0;top:0;background-color:rgba(0,0,0,.4)}
+.input-modal .input-box{position:absolute;height:58px;left:0;right:0;top:0;background-color:rgba(0,0,0,.4)}
+.input-modal .input-box .impression-text-wrap{position:absolute;left:10px;right:22px;top:10px;height:98px}
+.input-modal .input-box .impression-text-wrap .impression-text{background-color:white;border:1px solid #d6d6d6;width:100%;height:100%;-webkit-border-radius:2px;border-radius:2px;line-height:38px;padding:0 5px;}
+.input-modal .input-box .reply-submit{float:right;display:inline-block;color:#fff;background-color:#ca4e32;-webkit-border-radius:2px;border-radius:2px;height:40px;padding:0 15px;line-height:40px;}
+.input-modal .input-box .reply-cancel{float:right;display:inline-block;color:#5c5c5c;background-color:#fff;-webkit-border-radius:2px;border-radius:2px;height:40px;padding:0 15px;line-height:40px;margin-right: 10px;}
+.input-modal .input-box .btn-wrap{position:absolute;top:121px;right:10px;left: 10px;}
+.reply-content{background-color: #f1f1f1; padding: 5px 0px; margin-bottom: 5px; font-size: 12px;}
+.reply-content .reply-name{color:#e4b074;font-size: 12px}

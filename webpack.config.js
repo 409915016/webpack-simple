@@ -63,7 +63,8 @@ module.exports = {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        //contentBase: path.join(__dirname, 'src'),
+        contentBase: './src',
         compress: true,
         hot: true,
         port: 9000,
@@ -79,7 +80,7 @@ module.exports = {
             hash: true,
             excludeChunks: ['contact'],
             // filename: './../index.html',
-            template: './src/index.html'
+            template: './src/infzm.html'
         }),
         new ExtractTextPlugin({
             filename: 'css/[name].css',
