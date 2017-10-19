@@ -10,10 +10,10 @@ const autoprefixer = require('autoprefixer');
 
 
 const isProd = process.env.NODE_ENV === 'production';
-const cssDev = ['style-loader', 'css-loader?sourceMap', 'less-loader', 'postcss-loader'];
+const cssDev = ['style-loader','css-loader?sourceMap', 'postcss-loader','less-loader'];
 const cssProd = ExtractTextPlugin.extract({
   fallback: 'style-loader',
-  use: ['css-loader', 'less-loader', 'postcss-loader'],
+  use: ['css-loader',  'postcss-loader', 'less-loader'],
   publicPath: '/dist'
 });
 const cssConfig = isProd ? cssProd : cssDev;
@@ -71,7 +71,7 @@ module.exports = {
     port: 9001,
     stats: 'errors-only',
     open: true,
-    outputPath: path.join(__dirname, './dist')
+    //outputPath: path.join(__dirname, './dist')
   },
   plugins: [
     new CopyWebpackPlugin([
