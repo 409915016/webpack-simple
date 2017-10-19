@@ -1,7 +1,7 @@
 // import $ from 'zepto'
 // import 'bc-zepto-touch'
 
-let linkedme_key = "1a5f1dd4e88218c23185dcc659f4ddcf";
+let linkedme_key = "bf271f3460129beded3f494445ff8859";
 let initData = {};
 initData.type = "test"; //表示现在使用线上模式,如果填写"test", 表示测试模式.
 
@@ -34,17 +34,9 @@ let lkme = {
       data.android_direct_open = ""; //设置为true，所有情况下跳转android_custom_url，默认为false【可选】
 // 下面是自定义深度链接参数，用户点击深度链接打开app之后，params的参数会通过LinkedME服务器透传给app，由app根据参数进行相关跳转
 // 例如：详情页面的参数，写入到params中，这样在唤起app并获取参数后app根据参数跳转到详情页面
-//       var value1 = 1;
-//       var value2 = 2;
-//       console.log(value1)
-//       console.log(value2)
-//       var value1 = 6010;
-//       var value2 = 129061;
-//       var value3 = 1;
-//       var value4 = 4;
       data.params = '{"period":"' + value1 +
         '","link_id":"' + value2 +
-        '","is_display":"' + value3 +
+        '","hide":"' + value3 +
         '","content_type":"' + value4 + '"}'; //注意单引号和双引号的位置
       console.log(data.params);
 
