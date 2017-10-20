@@ -1,1 +1,1 @@
-console.log("hello")
+import './css/app.less'
