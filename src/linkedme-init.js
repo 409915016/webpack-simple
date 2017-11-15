@@ -1,7 +1,4 @@
-// import $ from 'zepto'
-// import 'bc-zepto-touch'
-
-let linkedme_key = "bf271f3460129beded3f494445ff8859";
+let linkedme_key = "7579053a99a1a35d279354ff97c81c2c";//bf271f3460129beded3f494445ff8859
 let initData = {};
 initData.type = "test"; //表示现在使用线上模式,如果填写"test", 表示测试模式.
 
@@ -13,13 +10,13 @@ let lkme = {
         console.log(err);
       } else {
         // 初始化成功，可以不做处理
-        console.log("初始化成功");
+        //console.log("初始化成功");
       }
     });
 
   },
   depth:
-    function (value1, value2, value3, value4) {
+    function (period, cat_id, article_id, hide, content_type) {
       //深度链接
 
       var data = {};
@@ -34,11 +31,12 @@ let lkme = {
       data.android_direct_open = ""; //设置为true，所有情况下跳转android_custom_url，默认为false【可选】
 // 下面是自定义深度链接参数，用户点击深度链接打开app之后，params的参数会通过LinkedME服务器透传给app，由app根据参数进行相关跳转
 // 例如：详情页面的参数，写入到params中，这样在唤起app并获取参数后app根据参数跳转到详情页面
-      data.params = '{"period":"' + value1 +
-        '","link_id":"' + value2 +
-        '","hide":"' + value3 +
-        '","content_type":"' + value4 + '"}'; //注意单引号和双引号的位置
-      console.log(data.params);
+      data.params = '{"period":"' + period +
+        '","cat_id":"' + cat_id +
+        '","article_id":"' + article_id +
+        '","hide":"' + hide +
+        '","content_type":"' + content_type + '"}'; //注意单引号和双引号的位置
+      //console.log(data.params);
 
       let responseLink = null;
       linkedme.link(
@@ -51,7 +49,7 @@ let lkme = {
           } else {
             // 生成深度链接成功，深度链接可以通过data.url得到
             if (response.url) {
-              console.log(response.url);
+              //console.log(response.url);
               responseLink = response.url;
               $("#newspaper-subscibe").data("link", response.url)
             }
